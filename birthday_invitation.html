@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎊 СУПЕР ДЕНЬ РОЖДЕНИЯ! 🎊</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Pacifico&family=Righteous&family=Bangers&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka One', cursive;
+            background: linear-gradient(45deg, #ff006e, #ff8500, #ffbe0b, #fb5607, #8338ec, #3a86ff);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* БЕЗУМНЫЕ ПАТТЕРНЫ И ФИГУРЫ */
+        .crazy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%),
+                linear-gradient(-45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+            animation: patternMove 8s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* ЛЕТАЮЩИЕ ФИГУРЫ */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            animation: floatAround 15s linear infinite;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff006e, #ffbe0b);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            animation: floatAround 12s ease-in-out infinite, pulse 2s ease-in-out infinite alternate;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #8338ec, #3a86ff);
+            transform: rotate(45deg);
+            box-shadow: 0 0 40px rgba(131, 56, 236, 0.6);
+            animation: floatAround 18s ease-in-out infinite reverse, spin 4s linear infinite;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 15%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #fb5607, #ff8500);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: 0 0 35px rgba(251, 86, 7, 0.7);
+            animation: floatAround 20s ease-in-out infinite, bounce 3s ease-in-out infinite;
+        }
+
+        .shape-4 {
+            top: 30%;
+            left: 70%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ffbe0b, #ff006e);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 190, 11, 0.5);
+            animation: floatAround 14s ease-in-out infinite, wiggle 1.5s ease-in-out infinite;
+        }
+
+        .shape-5 {
+            bottom: 50%;
+            right: 25%;
+            width: 90px;
+            height: 90px;
+            background: conic-gradient(#ff006e, #8338ec, #3a86ff, #ffbe0b, #ff006e);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4);
+            animation: floatAround 16s ease-in-out infinite reverse, rainbowSpin 3s linear infinite;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(50px) translateY(-30px); }
+            50% { transform: translateX(-30px) translateY(-60px); }
+            75% { transform: translateX(-50px) translateY(30px); }
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(45deg); }
+            to { transform: rotate(405deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        @keyframes rainbowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ОСНОВНОЙ КОНТЕЙНЕР */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* МЕГА КАРТОЧКА */
+        .party-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95), 
+                rgba(255, 255, 255, 0.8), 
+                rgba(255, 255, 255, 0.95));
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            border: 5px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 0 0 2px rgba(255, 255, 255, 0.3),
+                0 0 100px rgba(255, 0, 110, 0.2);
+            position: relative;
+            overflow: visible;
+            animation: cardEntrance 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 700px;
+            width: 100%;
+        }
+
+        @keyframes cardEntrance {
+            0% { 
+                opacity: 0; 
+                transform: translateY(100px) scale(0.8) rotate(5deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1) rotate(0deg); 
+            }
+        }
+
+        /* РАДУЖНАЯ ГРАНИЦА */
+        .party-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, 
+                #ff006e, #ff8500, #ffbe0b, #fb5607, #8338ec, #3a86ff, #ff006e);
+            background-size: 400% 400%;
+            animation: rainbowBorder 3s linear infinite;
+            border-radius: 40px;
+            z-index: -1;
+        }
+
+        @keyframes rainbowBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ЗАГОЛОВОК МЕГА СТИЛЬ */
+        .mega-title {
+            font-family: 'Bangers', cursive;
+            font-size: 4.5rem;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ffbe0b, #fb5607);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleRainbow 2s linear infinite, titleBounce 1s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            transform-origin: center;
+        }
+
+        @keyframes titleRainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes titleBounce {
+            from { transform: scale(1) rotate(-1deg); }
+            to { transform: scale(1.05) rotate(1deg); }
+        }
+
+        .party-subtitle {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: #ff006e;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(255, 0, 110, 0.3);
+            animation: subtitleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtitleGlow {
+            from { text-shadow: 0 2px 10px rgba(255, 0, 110, 0.3); }
+            to { text-shadow: 0 5px 20px rgba(255, 0, 110, 0.6), 0 0 30px rgba(131, 56, 236, 0.4); }
+        }
+
+        /* ИНФОРМАЦИОННЫЕ БЛОКИ МАКСИМАЛИЗМ */
+        .info-mega-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .info-mega-item {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 110, 0.1), 
+                rgba(131, 56, 236, 0.1), 
+                rgba(58, 134, 255, 0.1));
+            border-radius: 25px;
+            padding: 35px 25px;
+            backdrop-filter: blur(15px);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+            animation: itemFloat 3s ease-in-out infinite alternate;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-mega-item:nth-child(1) { 
+            animation-delay: 0s; 
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(255, 190, 11, 0.15));
+        }
+        .info-mega-item:nth-child(2) { 
+            animation-delay: 1s; 
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.15), rgba(58, 134, 255, 0.15));
+        }
+
+        @keyframes itemFloat {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .info-mega-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .mega-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: iconBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+
+        .info-mega-label {
+            font-size: 1.1rem;
+            color: #8338ec;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(131, 56, 236, 0.3);
+        }
+
+        .info-mega-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff006e;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(255, 0, 110, 0.3);
+            font-family: 'Righteous', cursive;
+        }
+
+        /* МЕСТО ПРОВЕДЕНИЯ БЛОК */
+        .location-mega-block {
+            background: linear-gradient(135deg, 
+                rgba(251, 86, 7, 0.2), 
+                rgba(255, 133, 0, 0.2), 
+                rgba(255, 190, 11, 0.2));
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 4px solid rgba(251, 86, 7, 0.3);
+            box-shadow: 0 20px 40px rgba(251, 86, 7, 0.2);
+            animation: locationPulse 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes locationPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(251, 86, 7, 0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 25px 50px rgba(251, 86, 7, 0.4); }
+        }
+
+        /* СУПЕР СООБЩЕНИЕ */
+        .party-message {
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+            background-size: 200% 200%;
+            animation: messageGradient 3s ease infinite;
+            color: white;
+            padding: 35px;
+            border-radius: 25px;
+            margin: 35px 0;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            box-shadow: 0 15px 35px rgba(255, 0, 110, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes messageGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .party-message::before {
+            content: '🎉';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 2rem;
+            animation: iconSpin 3s linear infinite;
+        }
+
+        .party-message::after {
+            content: '🥳';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 2rem;
+            animation: iconSpin 3s linear infinite reverse;
+        }
+
+        @keyframes iconSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* МЕГА КНОПКА */
+        .mega-button {
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ffbe0b, #fb5607);
+            background-size: 300% 300%;
+            color: white;
+            border: none;
+            padding: 25px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Fredoka One', cursive;
+            box-shadow: 0 15px 30px rgba(255, 0, 110, 0.4);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: buttonRainbow 3s linear infinite, buttonBounce 2s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes buttonRainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes buttonBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
+        }
+
+        .mega-button:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 25px 50px rgba(255, 0, 110, 0.6);
+            animation: buttonExplode 0.5s ease-out;
+        }
+
+        @keyframes buttonExplode {
+            0% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* ЗВЕЗДОЧКИ ФОНОВЫЕ */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -3;
+        }
+
+        .star {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            animation: starTwinkle 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes starTwinkle {
+            from { opacity: 0.3; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .party-card { 
+                padding: 30px 20px; 
+                border-radius: 25px;
+            }
+            .mega-title { font-size: 3rem; }
+            .info-mega-grid { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+            }
+            .mega-button { 
+                padding: 20px 40px; 
+                font-size: 1.3rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="crazy-bg"></div>
+    <div class="stars"></div>
+    
+    <div class="floating-shapes">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <div class="container">
+        <div class="party-card">
+            <h1 class="mega-title">🎊 ДЕНЬ РОЖДЕНИЯ! 🎊</h1>
+            <p class="party-subtitle">✨ Приглашаю на СУПЕР празднование! ✨</p>
+            
+            <div class="info-mega-grid">
+                <div class="info-mega-item">
+                    <span class="mega-icon">🗓️</span>
+                    <div class="info-mega-label">📅 Дата События</div>
+                    <div class="info-mega-value">20 сентября<br>🔥 ПЯТНИЦА! 🔥</div>
+                </div>
+                
+                <div class="info-mega-item">
+                    <span class="mega-icon">⏰</span>
+                    <div class="info-mega-label">🕒 Время Веселья</div>
+                    <div class="info-mega-value">16:30<br>⚡ ТОЧНО! ⚡</div>
+                </div>
+            </div>
+
+            <div class="location-mega-block">
+                <span class="mega-icon">🏛️</span>
+                <div class="info-mega-label">🍽️ Место Тусовки</div>
+                <div class="info-mega-value">Ресторан "АДЕЛЬ"<br>🌟 Самое крутое место! 🌟</div>
+            </div>
+
+            <div class="party-message">
+                <strong>🎉 БУДЕТ БЕЗУМНО ВЕСЕЛО! 🎉</strong><br><br>
+                Готовься к эпичному празднику! 🚀 Нас ждет невероятная атмосфера, 
+                обалденная еда 🍕🍰, крутая музыка 🎵 и море незабываемых моментов! 
+                Приходи обязательно - без тебя праздник будет не тот! 
+                <br><br><strong>🔥 ЭТО БУДЕТ ЛЕГЕНДАРНО! 🔥</strong>
+            </div>
+
+            <button class="mega-button" onclick="superConfetti(event)">
+                🎊 Я БУДУ ТАМ! 🎊
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Создание звездочек
+        function createStars() {
+            const stars = document.querySelector('.stars');
+            const starSymbols = ['⭐', '✨', '💫', '🌟', '⚡'];
+            
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.fontSize = Math.random() * 20 + 10 + 'px';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = Math.random() * 3 + 2 + 's';
+                stars.appendChild(star);
+            }
+        }
+
+        // Супер конфетти
+        function superConfetti(event) {
+            const colors = ['#ff006e', '#8338ec', '#3a86ff', '#ffbe0b', '#fb5607', '#ff8500'];
+            const symbols = ['🎉', '🎊', '✨', '🌟', '💫', '🎈', '🎁', '🥳'];
+            
+            // Создаем разные типы конфетти
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    
+                    if (Math.random() > 0.5) {
+                        // Цветные кружочки
+                        confetti.style.width = '12px';
+                        confetti.style.height = '12px';
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.borderRadius = '50%';
+                    } else {
+                        // Эмодзи конфетти
+                        confetti.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                        confetti.style.fontSize = '20px';
+                    }
+                    
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-20px';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '1000';
+                    confetti.style.animation = `confetti-fall 3s linear`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.remove();
+                        }
+                    }, 3200);
+                }, i * 100);
+            }
+
+            // Успешное сообщение
+            if (event && event.target) {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '🔥 СУПЕР! ЖДУ ТЕБЯ! 🔥';
+                button.style.background = 'linear-gradient(45deg, #4ecdc4, #44bd32, #26de81)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ffbe0b, #fb5607)';
+                }, 3000);
+            }
+        }
+
+        // Добавляем CSS для конфетти анимации
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti-fall {
+                0% { 
+                    transform: translateY(-100vh) rotate(0deg); 
+                    opacity: 1; 
+                }
+                100% { 
+                    transform: translateY(100vh) rotate(720deg); 
+                    opacity: 0; 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Запуск при загрузке
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+</body>
+</html>
